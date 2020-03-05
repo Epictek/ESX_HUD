@@ -55,13 +55,13 @@ ESX.RegisterServerCallback('esx_skin:getPlayerSkin', function(source, cb)
 end)
 
 -- Commands
-TriggerEvent('es:addGroupCommand', 'skin', 'admin', function(source, args, user)
+ESX.RegisterCommand('skin', 'admin', function(source, args, user)
 	TriggerClientEvent('esx_skin:openSaveableMenu', source)
 end, function(source, args, user)
 	TriggerClientEvent('chat:addMessage', source, { args = { '^1SYSTEM', 'Insufficient Permissions.' } })
 end, {help = _U('skin')})
 
-TriggerEvent('es:addGroupCommand', 'skinsave', 'admin', function(source, args, user)
+ESX.RegisterCommand('skinsave', 'admin', function(source, args, user)
 	TriggerClientEvent('esx_skin:requestSaveSkin', source)
 end, function(source, args, user)
 	TriggerClientEvent('chat:addMessage', source, { args = { '^1SYSTEM', 'Insufficient Permissions.' } })
